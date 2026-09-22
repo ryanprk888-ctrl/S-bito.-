@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#000000">
+
+<title>Para Sun 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    color:#fff;
+}
+
+/* =====================================================
+   UNIVERSO
+===================================================== */
+
+#space{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(255,190,60,.09),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            #090704 0%,
+            #020202 58%,
+            #000 100%
+        );
+}
+
+/* =====================================================
+   CAMPO DE ESTRELLAS
+===================================================== */
+
+#stars{
+    position:absolute;
+    inset:-30%;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.95) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,225,160,.75) 0 .8px,
+            transparent 1.4px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.4) 0 .6px,
+            transparent 1.3px
+        );
+
+    background-size:
+        67px 73px,
+        113px 127px,
+        181px 191px;
+
+    animation:starsMove 90s linear infinite;
+}
+
+@keyframes starsMove{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+
+    to{
+        transform:translate(-120px,90px) scale(1.03);
+    }
+}
+
+/* =====================================================
+   NEBULOSA ROSADA
+===================================================== */
+
+.pink-nebula{
+    position:absolute;
+
+    width:100vmax;
+    height:100vmax;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,70,150,.075) 0%,
+            rgba(255,70,150,.035) 28%,
+            rgba(255,70,150,.01) 48%,
+            transparent 70%
+        );
+
+    filter:blur(50px);
+
+    animation:nebulaPulse 8s ease-in-out infinite;
+}
+
+@keyframes nebulaPulse{
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            scale(.85);
+
+        opacity:.45;
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.12);
+
+        opacity:1;
+    }
+}
+
+/* =====================================================
+   PARTICULAS
+===================================================== */
+
+#particles{
+    position:absolute;
+    inset:0;
+    z-index:3;
+}
+
+.particle{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 4px #fff,
+        0 0 10px #ffd45c;
+
+    animation:
+        particleFloat var(--duration) linear infinite;
+}
+
+@keyframes particleFloat{
+
+    0%{
+        transform:
+            translate3d(0,50px,0)
+            scale:.3;
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.85;
+    }
+
+    80%{
+        opacity:.7;
+    }
+
+    100%{
+        transform:
+            translate3d(
+                var(--move-x),
+                -110px,
+                0
+            )
+            scale(1.3);
+
+        opacity:0;
+    }
+}
+
+/* =====================================================
+   ESTRELLAS GRANDES
+===================================================== */
+
+.twinkle{
+    position:absolute;
+
+    z-index:6;
+
+    color:#fff2c4;
+
+    text-shadow:
+        0 0 7px #fff,
+        0 0 15px #ffd45c,
+        0 0 30px rgba(255,190,50,.7);
+
+    animation:
+        twinkle var(--speed) ease-in-out infinite;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.15;
+        transform:scale(.6);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.3);
+    }
+}
+
+/* =====================================================
+   PLANETA
+===================================================== */
+
+.planet{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:82px;
+    height:82px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    z-index:12;
+
+    background:
+        radial-gradient(
+            circle at 33% 28%,
+            #fffbdc 0%,
+            #ffe875 10%,
+            #ffc22d 27%,
+            #9a450b 58%,
+            #250b01 100%
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,220,90,.9),
+        0 0 50px rgba(255,175,35,.55),
+        0 0 100px rgba(255,120,20,.22);
+
+    animation:
+        planetPulse 4s ease-in-out infinite;
+}
+
+@keyframes planetPulse{
+
+    0%,100%{
+        box-shadow:
+            0 0 20px rgba(255,220,90,.8),
+            0 0 50px rgba(255,175,35,.45),
+            0 0 100px rgba(255,120,20,.18);
+    }
+
+    50%{
+        box-shadow:
+            0 0 28px rgba(255,235,130,1),
+            0 0 70px rgba(255,180,45,.65),
+            0 0 125px rgba(255,110,20,.25);
+    }
+}
+
+/* =====================================================
+   ANILLO
+===================================================== */
+
+.ring{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:275px;
+    height:78px;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-7deg);
+
+    border-radius:50%;
+
+    border:
+        8px solid rgba(255,222,95,.95);
+
+    z-index:11;
+
+    box-shadow:
+        0 0 8px #fff5a5,
+        0 0 20px #ffd83d,
+        0 0 48px rgba(255,180,30,.75),
+        inset 0 0 13px #ffd83d;
+
+    animation:ringPulse 5s ease-in-out infinite;
+}
+
+.ring::after{
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border-radius:50%;
+
+    border:
+        2px solid rgba(255,255,230,.9);
+
+    filter:blur(3px);
+}
+
+@keyframes ringPulse{
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            rotate(-7deg)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            rotate(-7deg)
+            scale(1.055);
+    }
+}
+
+/* =====================================================
+   FLORES
+===================================================== */
+
+.flower{
+    position:absolute;
+
+    z-index:18;
+
+    user-select:none;
+
+    filter:
+        drop-shadow(0 0 8px rgba(255,255,255,.18))
+        drop-shadow(0 0 18px rgba(255,100,180,.18));
+
+    animation:
+        flowerFloat var(--duration) ease-in-out infinite;
+}
+
+.flower span{
+    display:block;
+
+    animation:
+        flowerRotate var(--rotate) linear infinite;
+}
+
+@keyframes flowerFloat{
+
+    0%,100%{
+        transform:
+            translate3d(0,0,0)
+            rotate(-4deg);
+    }
+
+    50%{
+        transform:
+            translate3d(
+                var(--move),
+                -24px,
+                0
+            )
+            rotate(5deg);
+    }
+}
+
+@keyframes flowerRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =====================================================
+   CORAZONES ROSADOS
+===================================================== */
+
+.heart{
+    position:absolute;
+
+    z-index:19;
+
+    color:#ff9dcb;
+
+    text-shadow:
+        0 0 6px #ff4f9b,
+        0 0 18px rgba(255,55,150,.85),
+        0 0 35px rgba(255,55,150,.35);
+
+    animation:
+        heartFloat var(--duration) ease-in-out infinite;
+}
+
+@keyframes heartFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            scale(.75)
+            rotate(-8deg);
+
+        opacity:.3;
+    }
+
+    50%{
+        transform:
+            translateY(-28px)
+            scale(1.18)
+            rotate(8deg);
+
+        opacity:1;
+    }
+}
+
+/* =====================================================
+   DESTELLOS ROSADOS
+===================================================== */
+
+.spark{
+    position:absolute;
+
+    z-index:20;
+
+    color:#ffb6d8;
+
+    text-shadow:
+        0 0 7px #ff8ec2,
+        0 0 18px #ff4f9b,
+        0 0 35px rgba(255,50,145,.7);
+
+    animation:
+        sparkPulse var(--speed) ease-in-out infinite;
+}
+
+@keyframes sparkPulse{
+
+    0%,100%{
+        opacity:.1;
+        transform:scale(.5) rotate(0deg);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.3) rotate(45deg);
+    }
+}
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+#message{
+    position:absolute;
+
+    z-index:40;
+
+    left:50%;
+    top:50%;
+
+    width:min(720px,84vw);
+
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity 1.8s ease;
+}
+
+#message.visible{
+    opacity:1;
+}
+
+.message-line{
+    display:block;
+
+    margin:7px 0;
+
+    color:#fff;
+
+    font-size:
+        clamp(
+            17px,
+            3vw,
+            27px
+        );
+
+    line-height:1.5;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,.95),
+        0 0 15px rgba(255,140,195,.55),
+        0 0 35px rgba(255,60,160,.25);
+
+    opacity:0;
+
+    transform:
+        translateY(18px)
+        scale(.97);
+}
+
+#message.visible .message-line{
+    animation:
+        lineAppear 1.25s ease forwards;
+}
+
+#message.visible .line1{
+    animation-delay:.25s;
+}
+
+#message.visible .line2{
+    animation-delay:.7s;
+}
+
+#message.visible .line3{
+    animation-delay:1.15s;
+}
+
+#message.visible .line4{
+    animation-delay:1.6s;
+}
+
+#message.visible .line5{
+    animation-delay:2.05s;
+}
+
+#message.visible .line6{
+    animation-delay:2.5s;
+}
+
+@keyframes lineAppear{
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.signature{
+    margin-top:23px;
+
+    font-size:30px;
+
+    color:#ff9dcc;
+
+    text-shadow:
+        0 0 10px #ff4f9b,
+        0 0 30px #ff4f9b;
+
+    opacity:0;
+}
+
+#message.visible .signature{
+    animation:
+        signatureIn 1.5s ease 3.2s forwards,
+        signaturePulse 3s ease-in-out 4.7s infinite;
+}
+
+@keyframes signatureIn{
+
+    from{
+        opacity:0;
+        transform:scale(.4);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes signaturePulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+#intro{
+    position:fixed;
+    inset:0;
+
+    z-index:100;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #090507 0%,
+            #020202 55%,
+            #000 100%
+        );
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-content{
+    width:86vw;
+}
+
+.intro-heart{
+    font-size:50px;
+
+    filter:
+        drop-shadow(0 0 12px #ff4f9b)
+        drop-shadow(0 0 35px rgba(255,50,150,.65));
+
+    animation:introHeart 2s ease-in-out infinite;
+}
+
+@keyframes introHeart{
+
+    0%,100%{
+        transform:scale(.9);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+.intro-title{
+    margin-top:23px;
+
+    font-size:
+        clamp(
+            34px,
+            10vw,
+            65px
+        );
+
+    font-weight:400;
+
+    letter-spacing:.16em;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 30px rgba(255,100,180,.7);
+}
+
+.intro-text{
+    margin-top:15px;
+
+    color:rgba(255,255,255,.68);
+
+    font-size:16px;
+
+    line-height:1.7;
+}
+
+#open{
+    margin-top:34px;
+
+    padding:14px 36px;
+
+    border:
+        1px solid
+        rgba(255,155,205,.7);
+
+    border-radius:100px;
+
+    background:
+        rgba(255,70,150,.04);
+
+    color:#ffd8e9;
+
+    font-family:Georgia,serif;
+
+    letter-spacing:.16em;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 20px rgba(255,70,150,.15);
+
+    transition:.35s ease;
+}
+
+#open:hover{
+    transform:scale(1.07);
+
+    box-shadow:
+        0 0 30px rgba(255,70,150,.45);
+}
+
+#open:active{
+    transform:scale(.95);
+}
+
+/* =====================================================
+   BOTÓN MÚSICA
+===================================================== */
+
+#musicButton{
+    position:fixed;
+
+    right:17px;
+    bottom:17px;
+
+    z-index:80;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,155,205,.55);
+
+    background:
+        rgba(8,4,7,.72);
+
+    backdrop-filter:blur(10px);
+
+    color:#ffacd2;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 20px rgba(255,70,150,.18);
+
+    transition:.3s ease;
+}
+
+#musicButton:hover{
+    transform:scale(1.1);
+
+    box-shadow:
+        0 0 30px rgba(255,70,150,.4);
+}
+
+/* =====================================================
+   VIGNETA
+===================================================== */
+
+.vignette{
+    position:absolute;
+    inset:0;
+
+    z-index:60;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0,0,0,.32) 64%,
+            rgba(0,0,0,.9) 100%
+        );
+}
+
+/* =====================================================
+   MOVIL
+===================================================== */
+
+@media(max-width:600px){
+
+    .planet{
+        width:68px;
+        height:68px;
+    }
+
+    .ring{
+        width:220px;
+        height:63px;
+
+        border-width:7px;
+    }
+
+    #message{
+        width:84vw;
+    }
+
+    .message-line{
+        font-size:17px;
+        line-height:1.48;
+
+        margin:5px 0;
+    }
+
+    .flower{
+        font-size:28px !important;
+    }
+}
+
+@media(max-height:650px){
+
+    .message-line{
+        font-size:15px;
+        margin:3px 0;
+    }
+
+    .planet{
+        width:62px;
+        height:62px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     PANTALLA DE ENTRADA
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-heart">
+            💗
+        </div>
+
+        <div class="intro-title">
+            PARA SUN
+        </div>
+
+        <div class="intro-text">
+            Hice un pequeño universo<br>
+            solamente para vos.
+        </div>
+
+        <button id="open">
+            ✦ ABRIR ✦
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     UNIVERSO
+===================================================== -->
+
+<div id="space">
+
+    <div id="stars"></div>
+
+    <div class="pink-nebula"></div>
+
+    <div id="particles"></div>
+
+
+    <!-- ESTRELLAS -->
+
+    <div class="twinkle"
+         style="
+            left:8%;
+            top:17%;
+            --speed:3s;
+            font-size:13px;">
+        ✦
+    </div>
+
+    <div class="twinkle"
+         style="
+            left:18%;
+            top:67%;
+            --speed:4.2s;
+            font-size:8px;">
+        ✧
+    </div>
+
+    <div class="twinkle"
+         style="
+            right:10%;
+            top:22%;
+            --speed:5s;
+            font-size:14px;">
+        ✦
+    </div>
+
+    <div class="twinkle"
+         style="
+            right:18%;
+            bottom:20%;
+            --speed:3.8s;
+            font-size:9px;">
+        ✧
+    </div>
+
+    <div class="twinkle"
+         style="
+            left:30%;
+            top:12%;
+            --speed:4.5s;
+            font-size:7px;">
+        ✦
+    </div>
+
+    <div class="twinkle"
+         style="
+            right:34%;
+            bottom:13%;
+            --speed:5.3s;
+            font-size:11px;">
+        ✦
+    </div>
+
+
+    <!-- =================================================
+         CENTRO
+    ================================================== -->
+
+    <div class="ring"></div>
+
+    <div class="planet"></div>
+
+
+    <!-- =================================================
+         FLORES
+    ================================================== -->
+
+    <div class="flower"
+         style="
+            left:7%;
+            top:31%;
+            font-size:38px;
+            --duration:5.5s;
+            --rotate:15s;
+            --move:12px;">
+        <span>🌻</span>
+    </div>
+
+    <div class="flower"
+         style="
+            right:8%;
+            top:29%;
+            font-size:37px;
+            --duration:6.5s;
+            --rotate:18s;
+            --move:-15px;">
+        <span>🪷</span>
+    </div>
+
+    <div class="flower"
+         style="
+            left:13%;
+            bottom:20%;
+            font-size:32px;
+            --duration:5s;
+            --rotate:20s;
+            --move:15px;">
+        <span>💗</span>
+    </div>
+
+    <div class="flower"
+         style="
+            right:12%;
+            bottom:19%;
+            font-size:35px;
+            --duration:6s;
+            --rotate:16s;
+            --move:-12px;">
+        <span>🌻</span>
+    </div>
+
+    <div class="flower"
+         style="
+            left:28%;
+            top:21%;
+            font-size:25px;
+            --duration:4.8s;
+            --rotate:13s;
+            --move:10px;">
+        <span>🪷</span>
+    </div>
+
+    <div class="flower"
+         style="
+            right:27%;
+            top:20%;
+            font-size:25px;
+            --duration:5.8s;
+            --rotate:17s;
+            --move:-9px;">
+        <span>💗</span>
+    </div>
+
+    <div class="flower"
+         style="
+            left:27%;
+            bottom:11%;
+            font-size:27px;
+            --duration:6.2s;
+            --rotate:19s;
+            --move:12px;">
+        <span>🌻</span>
+    </div>
+
+    <div class="flower"
+         style="
+            right:27%;
+            bottom:11%;
+            font-size:27px;
+            --duration:5.4s;
+            --rotate:15s;
+            --move:-10px;">
+        <span>🪷</span>
+    </div>
+
+
+    <!-- =================================================
+         CORAZONES
+    ================================================== -->
+
+    <div class="heart"
+         style="
+            left:20%;
+            top:42%;
+            font-size:18px;
+            --duration:4s;">
+        ♥
+    </div>
+
+    <div class="heart"
+         style="
+            right:20%;
+            top:49%;
+            font-size:15px;
+            --duration:5s;">
+        ♥
+    </div>
+
+    <div class="heart"
+         style="
+            left:33%;
+            bottom:25%;
+            font-size:13px;
+            --duration:4.5s;">
+        ♥
+    </div>
+
+    <div class="heart"
+         style="
+            right:32%;
+            bottom:27%;
+            font-size:18px;
+            --duration:5.5s;">
+        ♥
+    </div>
+
+
+    <!-- =================================================
+         DESTELLOS ROSADOS
+    ================================================== -->
+
+    <div class="spark"
+         style="
+            left:15%;
+            top:25%;
+            font-size:17px;
+            --speed:3.4s;">
+        ✦
+    </div>
+
+    <div class="spark"
+         style="
+            right:17%;
+            top:38%;
+            font-size:13px;
+            --speed:4.1s;">
+        ✧
+    </div>
+
+    <div class="spark"
+         style="
+            left:24%;
+            bottom:31%;
+            font-size:15px;
+            --speed:3.7s;">
+        ✦
+    </div>
+
+    <div class="spark"
+         style="
+            right:24%;
+            bottom:34%;
+            font-size:18px;
+            --speed:4.8s;">
+        ✧
+    </div>
+
+
+    <!-- =================================================
+         MENSAJE
+    ================================================== -->
+
+    <div id="message">
+
+        <span class="message-line line1">
+            Sun, sos mi mejor amigo virtual,
+        </span>
+
+        <span class="message-line line2">
+            te adoro, tenés un lugar en mi vida
+        </span>
+
+        <span class="message-line line3">
+            sin importar si estás detrás de una pantalla,
+        </span>
+
+        <span class="message-line line4">
+            sos esa persona que no quiero perder nunca,
+        </span>
+
+        <span class="message-line line5">
+            que quiero conservar en mi vida siempre,
+        </span>
+
+        <span class="message-line line6">
+            te quiero mucho.
+        </span>
+
+        <div class="signature">
+            💗
+        </div>
+
+    </div>
+
+
+    <div class="vignette"></div>
+
+
+    <!-- CONTROL DE MÚSICA -->
+
+    <button
+        id="musicButton"
+        aria-label="Reproducir o pausar música">
+        ♫
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
+
+<audio
+    id="music"
+    preload="auto"
+    loop
+    playsinline>
+</audio>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const intro =
+    document.getElementById("intro");
+
+const openButton =
+    document.getElementById("open");
+
+const message =
+    document.getElementById("message");
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+const particles =
+    document.getElementById("particles");
+
+
+/* =====================================================
+   RUTA REAL DE LA CANCIÓN
+===================================================== */
+
+/*
+   El archivo está en la misma carpeta que index.html.
+
+   Nombre exacto del archivo en GitHub:
+   Make It Right(MP3_160K).mp3
+
+   encodeURI() convierte correctamente los espacios
+   y caracteres especiales de la URL.
+*/
+
+const songFile =
+    "Make It Right(MP3_160K).mp3";
+
+const songURL =
+    "./" + encodeURI(songFile);
+
+music.src = songURL;
+
+music.load();
+
+
+/* =====================================================
+   CREAR PARTICULAS
+===================================================== */
+
+for(let i = 0; i < 430; i++){
+
+    const particle =
+        document.createElement("div");
+
+    particle.className =
+        "particle";
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.top =
+        15 +
+        Math.random() * 90 +
+        "%";
+
+    particle.style.setProperty(
+        "--move-x",
+        (Math.random() * 180 - 90) + "px"
+    );
+
+    particle.style.setProperty(
+        "--duration",
+        (4 + Math.random() * 8) + "s"
+    );
+
+    particle.style.animationDelay =
+        (-Math.random() * 10) + "s";
+
+    particles.appendChild(
+        particle
+    );
+}
+
+
+/* =====================================================
+   ABRIR + REPRODUCIR
+===================================================== */
+
+openButton.addEventListener(
+    "click",
+    function(){
+
+        /*
+         * IMPORTANTE:
+         *
+         * play() ocurre directamente dentro
+         * del click del usuario.
+         *
+         * Esto es necesario porque los navegadores
+         * móviles bloquean el autoplay sin interacción.
+         */
+
+        music.volume = 0.75;
+
+        music.play()
+            .then(function(){
+
+                musicButton.textContent =
+                    "Ⅱ";
+
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Pausar música"
+                );
+
+            })
+            .catch(function(error){
+
+                /*
+                 * Si el navegador todavía rechaza
+                 * la reproducción, NO rompemos
+                 * la dedicatoria.
+                 */
+
+                console.log(
+                    "La reproducción automática fue bloqueada:",
+                    error
+                );
+
+                musicButton.textContent =
+                    "♫";
+            });
+
+
+        /*
+         * Abrimos la dedicatoria.
+         */
+
+        intro.classList.add("hide");
+
+
+        setTimeout(
+            function(){
+
+                message.classList.add(
+                    "visible"
+                );
+
+            },
+            900
+        );
+    }
+);
+
+
+/* =====================================================
+   BOTÓN DE MÚSICA
+===================================================== */
+
+musicButton.addEventListener(
+    "click",
+    function(){
+
+        if(music.paused){
+
+            music.play()
+                .then(function(){
+
+                    musicButton.textContent =
+                        "Ⅱ";
+
+                })
+                .catch(function(error){
+
+                    console.log(
+                        "No se pudo reproducir el audio:",
+                        error
+                    );
+
+                });
+
+        }else{
+
+            music.pause();
+
+            musicButton.textContent =
+                "♫";
+        }
+    }
+);
+
+
+/* =====================================================
+   PARALLAX DEL RATÓN
+===================================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event){
+
+        const x =
+            (
+                event.clientX /
+                window.innerWidth -
+                0.5
+            ) * 12;
+
+        const y =
+            (
+                event.clientY /
+                window.innerHeight -
+                0.5
+            ) * 12;
+
+
+        const planet =
+            document.querySelector(
+                ".planet"
+            );
+
+        const ring =
+            document.querySelector(
+                ".ring"
+            );
+
+
+        planet.style.marginLeft =
+            x + "px";
+
+        planet.style.marginTop =
+            y + "px";
+
+        ring.style.marginLeft =
+            x + "px";
+
+        ring.style.marginTop =
+            y + "px";
+
+        message.style.marginLeft =
+            (x * 0.25) + "px";
+
+        message.style.marginTop =
+            (y * 0.25) + "px";
+    }
+);
+
+
+/* =====================================================
+   PARALLAX DEL CELULAR
+===================================================== */
+
+window.addEventListener(
+    "deviceorientation",
+    function(event){
+
+        if(event.gamma === null)
+            return;
+
+
+        const x =
+            Math.max(
+                -10,
+                Math.min(
+                    10,
+                    event.gamma * 0.25
+                )
+            );
+
+        const y =
+            Math.max(
+                -8,
+                Math.min(
+                    8,
+                    event.beta * 0.08
+                )
+            );
+
+
+        message.style.marginLeft =
+            x + "px";
+
+        message.style.marginTop =
+            y + "px";
+    }
+);
+
+
+/* =====================================================
+   COMPROBAR CARGA DEL AUDIO
+===================================================== */
+
+music.addEventListener(
+    "canplaythrough",
+    function(){
+
+        console.log(
+            "✓ Música cargada correctamente."
+        );
+    }
+);
+
+music.addEventListener(
+    "error",
+    function(){
+
+        console.error(
+            "✗ No se pudo cargar:",
+            songURL
+        );
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
